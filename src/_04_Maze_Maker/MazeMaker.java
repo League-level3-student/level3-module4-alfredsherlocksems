@@ -23,7 +23,21 @@ public class MazeMaker {
         //    This will be the starting point. Then select a random cell along
         //    the opposite wall and remove its exterior wall. This will be the
         //    finish line.
-        
+        int type = randGen.nextInt(4);
+        int where = randGen.nextInt(rows);
+        Cell start;
+        if (type == 0) {
+        	start = maze.getCell(0, where);
+        }
+        else if ( type == 1){
+        	start = maze.getCell(where, 0);
+        }
+        else if (type == 2) {
+        	start = maze.getCell(rows - 1, where);
+        }
+        else {
+        	start = maze.getCell(where, rows - 1);
+        }
         // 2. select a random cell in the maze to start 
         
         // 3. call the selectNextPath method with the randomly selected cell
